@@ -1,0 +1,169 @@
+@font-face {
+  font-family: "HanSerifCN";
+  src: url("../resource/fonts/SourceHanSerifCN-Regular.otf") format("opentype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "HanSerifCN";
+  src: url("../resource/fonts/SourceHanSerifCN-Bold.otf") format("opentype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "songti";
+  src: url("../resource/fonts/songti.ttf") format("truetype");
+}
+
+body {
+  padding: 20px;
+  margin: 0;
+  font-family: "HanSerifCN", sans-serif;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: url("../resource/textures/end.png") center/cover no-repeat;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+header img.title {
+  width: 200px;
+  height: auto;
+}
+
+.container,
+.container2,
+.container3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.container3 {
+  margin-top: 0px;
+}
+
+.card,
+.card2 {
+  width: 1282px;
+  height: 690px;
+  background-color: rgba(255, 255, 255, 0.55);
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+}
+
+.card {
+  margin: 20px 20px 20px 0;
+}
+
+.card2 {
+  margin-left: 20px;
+}
+
+.movie-title,
+.plot,
+.actor {
+  font-weight: bold;
+  margin: 20px;
+  font-family: "HanSerifCN", sans-serif;
+  font-size: 24px;
+}
+
+.movie-title-content,
+.plot-content,
+.actor-content {
+  margin: 20px;
+  font-size: 16px;
+}
+
+.poster,
+.poster2 {
+  height: 690px;
+}
+
+.poster img,
+.poster2 img {
+  height: 100%;
+  width: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: not-allowed;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5); 
+}
+
+.view-details,
+.quotes {
+  position: absolute;
+  bottom: 20px;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: black;
+  font-family: "songti", sans-serif;
+}
+
+.view-details {
+  left: 20px;
+}
+
+.quotes {
+  right: 20px;
+}
+
+.button {
+  background-color: rgba(255, 255, 255, 0.6);
+  border: none;
+  color: black;
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, transform 0.2s;
+  margin-right: 3px;
+  margin-left: 3px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.button:hover {
+  background-color: rgba(173, 173, 173, 0.8);
+  transform: scale(1.05);
+}
+
+.button:active {
+  transform: scale(0.95);
+  -webkit-transform: scale(0.95);
+  -moz-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  -o-transform: scale(0.95);
+}
+
+.buttons {
+  padding-right: 20px;
+  width: 100%;
+  max-width: 1790px;
+  margin: 0 auto;
+}
+
+.button-area {
+  overflow: hidden;
+  width: 100%;
+  max-width: 1790px;
+  margin: 0 auto;
+}
