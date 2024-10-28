@@ -1,220 +1,245 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>王者荣耀英雄简介-李白</title>
-    <style>
-        :root {
-            --primary-color: #f3c258;
-            --text-color: #fffffffe;
-            --bg-opacity: 0.1;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>王者荣耀英雄简介-李白</title>
+  <style>
+    :root {
+      --primary-color: #f3c258;
+      --text-color: #fffffffe;
+      --bg-opacity: 0.1;
+    }
 
-        body {
-            background: url('https://game.gtimg.cn/images/yxzj/ip/bg.c7e8614f.jpg') no-repeat center center fixed;
-            background-size: cover;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--text-color);
-            padding: 20px;
-            margin: 0;
-            min-height: 100vh;
-            position: relative;
-        }
+    body {
+      background: url("https://game.gtimg.cn/images/yxzj/ip/bg.c7e8614f.jpg") no-repeat center center fixed;
+      background-size: cover;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--text-color);
+      padding: 20px;
+      margin: 0;
+      min-height: 100vh;
+      position: relative;
+    }
 
-        body::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0);
-            z-index: -1;
-        }
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0);
+      z-index: -1;
+    }
 
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 20px;
-            background: rgba(255, 255, 255, var(--bg-opacity));
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+      background: rgba(255, 255, 255, var(--bg-opacity));
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
 
-        h1 {
-            font-size: 48px;
-            text-align: center;
-            background: linear-gradient(45deg, #ffffff, var(--primary-color), #6b6900);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 20px;
-        }
+    h1 {
+      font-size: 48px;
+      text-align: center;
+      background: linear-gradient(45deg,
+          #ffffff,
+          var(--primary-color),
+          #6b6900);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 20px;
+    }
 
-        .character-info {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
+    .character-info {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
 
-        .character-info h4 {
-            font-size: 18px;
-            background: linear-gradient(45deg, #ffffff, var(--primary-color), #643500fb);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin: 5px 0;
-            display: flex;
-            align-items: center;
-        }
+    .character-info h4 {
+      font-size: 18px;
+      background: linear-gradient(45deg,
+          #ffffff,
+          var(--primary-color),
+          #643500fb);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin: 5px 0;
+      display: flex;
+      align-items: center;
+    }
 
-        .character-info h4 img {
-            margin-right: 8px;
-            width: 16px;
-            height: 16px;
-        }
+    .character-info h4 img {
+      margin-right: 8px;
+      width: 16px;
+      height: 16px;
+    }
 
-        .character-image {
-            float: right;
-            margin-left: 20px;
-            width: 300px;
-            height: auto;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-        }
+    .character-image {
+      float: right;
+      margin-left: 20px;
+      width: 300px;
+      height: auto;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
 
-        .character-image:hover {
-            transform: scale(1.1);
-        }
+    .character-image:hover {
+      transform: scale(1.1);
+    }
 
-        .character-description {
-            font-size: 16px;
-            line-height: 1.6;
-            margin-top: 20px;
-        }
+    .character-description {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-top: 20px;
+    }
 
-        hr {
-            border: 0;
-            height: 2px;
-            background: var(--primary-color);
-            margin: 20px auto;
-        }
+    hr {
+      border: 0;
+      height: 2px;
+      background: var(--primary-color);
+      margin: 20px auto;
+    }
 
-        .text-gray {
-            color: #a8a8a8;
-            font-style: normal;
-        }
+    .text-gray {
+      color: #a8a8a8;
+      font-style: normal;
+    }
 
-        .text-white {
-            color: #ffffff;
-            font-style: italic;
-        }
+    .text-white {
+      color: #ffffff;
+      font-style: italic;
+    }
 
-        .highlight {
-            color: rgb(213, 188, 145);
-        }
-    </style>
+    .highlight {
+      color: rgb(213, 188, 145);
+    }
+  </style>
 </head>
 
 <body>
+  <header>
+    <div class="logo">
+      <img src="https://game.gtimg.cn/images/yxzj/pvpcommonimage/header/logo.png" alt="王者荣耀Logo" />
+    </div>
+  </header>
+
+  <div class="container">
     <header>
-        <div class="logo">
-            <img src="https://game.gtimg.cn/images/yxzj/pvpcommonimage/header/logo.png" alt="王者荣耀Logo">
-        </div>
+      <h1>李白</h1>
+      <hr />
     </header>
 
-    <div class="container">
-        <header>
-            <h1>李白</h1>
-            <hr>
-        </header>
+    <section class="character-info">
+      <div>
+        <h4>
+          <img src="icon/能量.png" alt="能量" /><span class="text-gray">能量：</span><span class="text-white">武道</span>
+        </h4>
+      </div>
+      <div>
+        <h4>
+          <img src="icon/区域.png" alt="区域" /><span class="text-gray">区域：</span><span class="text-white">河洛</span>
+        </h4>
+      </div>
+      <div>
+        <h4>
+          <img src="icon/种族.png" alt="种族" /><span class="text-gray">种族：</span><span class="text-white">人类</span>
+        </h4>
+      </div>
+      <div>
+        <h4>
+          <img src="icon/城市.png" alt="城市" /><span class="text-gray">城市：</span><span class="text-white">长安城</span>
+        </h4>
+      </div>
+      <div>
+        <h4>
+          <img src="icon/身高.png" alt="身高" /><span class="text-gray">身高：</span><span class="text-white">184cm</span>
+        </h4>
+      </div>
+      <div>
+        <h4>
+          <img src="icon/阵营.png" alt="阵营" /><span class="text-gray">阵营：</span><span class="text-white">长安</span>
+        </h4>
+      </div>
+      <div>
+        <h4>
+          <img src="icon/身份.png" alt="身份" /><span class="text-gray">身份：</span><span class="text-white">天才剑客</span>
+        </h4>
+      </div>
+    </section>
+    <hr />
 
-        <section class="character-info">
-            <div>
-                <h4><img src="icon/能量.png" alt="能量"><span class="text-gray">能量：</span><span class="text-white">武道</span></h4>
-            </div>
-            <div>
-                <h4><img src="icon/区域.png" alt="区域"><span class="text-gray">区域：</span><span class="text-white">河洛</span></h4>
-            </div>
-            <div>
-                <h4><img src="icon/种族.png" alt="种族"><span class="text-gray">种族：</span><span class="text-white">人类</span></h4>
-            </div>
-            <div>
-                <h4><img src="icon/城市.png" alt="城市"><span class="text-gray">城市：</span><span class="text-white">长安城</span></h4>
-            </div>
-            <div>
-                <h4><img src="icon/身高.png" alt="身高"><span class="text-gray">身高：</span><span class="text-white">184cm</span></h4>
-            </div>
-            <div>
-                <h4><img src="icon/阵营.png" alt="阵营"><span class="text-gray">阵营：</span><span class="text-white">长安</span></h4>
-            </div>
-            <div>
-                <h4><img src="icon/身份.png" alt="身份"><span class="text-gray">身份：</span><span class="text-white">天才剑客</span></h4>
-            </div>
-        </section>
-        <hr>
+    <section class="character-description">
+      <a href="https://pvp.qq.com/coming/v2/skins/0930-zxzylb.shtml" class="image-link" target="_blank">
+        <img class="character-image" src="png/libai.jpg" alt="李白" />
+      </a>
 
-        <section class="character-description">
-            <a href="https://pvp.qq.com/coming/v2/skins/0930-zxzylb.shtml" class="image-link" target="_blank">
-                <img class="character-image" src="png/libai.jpg" alt="李白">
-            </a>
+      <h5>
+        巍峨的长安城，数百年间屹立不倒。但长安的门户，守卫严密的朱雀门却镌刻着一道剑痕，那是一个青年醉后以长剑所书的诗句"欲上青天揽明月"，轰动整个长安城。当治安官狄仁杰欲以破坏长安的罪名逮捕他时，爱才的女帝拒绝了。<span
+          class="highlight">女帝甚至下令保留朱雀门上饱含剑意的诗痕。数日之间，这名一人一剑，直入长安的青年"剑仙"之名传遍长安。他就是李白。</span>
 
-            <h5>
-                巍峨的长安城，数百年间屹立不倒。但长安的门户，守卫严密的朱雀门却镌刻着一道剑痕，那是一个青年醉后以长剑所书的诗句"欲上青天揽明月"，轰动整个长安城。当治安官狄仁杰欲以破坏长安的罪名逮捕他时，爱才的女帝拒绝了。<span class="highlight">女帝甚至下令保留朱雀门上饱含剑意的诗痕。数日之间，这名一人一剑，直入长安的青年"剑仙"之名传遍长安。他就是李白。</span>
-                
-                <br><br>
-                
-                彼时的李白，年少轻狂，拒绝了女帝入朝为官的邀请后，开始试剑天下的旅途。当他初次见到滔滔黄河时，心中的剑意迸发而出，奔流到海不复回。<span class="highlight">从那时起，没有机关的师承，没有魔道的秘法，没有魔种的血脉的李白，仅仅依靠自己和手中的剑，成为帝国强者中的第一人，乃真正的天纵之才。</span>他会给每个败于己的对手赋诗，因此，诗名和剑名也一同流传开来。后来，甚至有人视之为荣耀，为得诗篇而求一败，令人哭笑不得。
-                
-                <br><br>
-                
-                就在李白的剑意到达巅峰之后不久，旅途也来到了云中漠地。很少有人知道，生活在长安的李白，出生于云中漠地的海市蜃楼之下。他怀着剑仙荣耀归来，却发现幼年记忆里充满异域风情的繁华城池已经不复存在。被贩为奴隶的公主，<span class="highlight">向他倾诉自己的遭遇：帝国的铁骑越过长城，踏平了整个云中漠地。荒废的城池很快被黄沙掩埋。李白想要救出她，少女却选择了从屈辱中自我了断。</span>
-                
-                <br><br>
-                
-                鲜血激起了李白的侠义之心。他第二次单剑闯入长安，质问女帝讨要征平云中漠地的说法。一夜长安风云变色，大明宫也在剑仙之剑下黯然无光。有史以来从未曾被外力攻破的长安城，第一次因为一个普通人而动摇。
-                
-                <br><br>
-                
-                没有人知道最后发生了什么事。李白自长安城中全身而退。他和女帝的密谈，被视为禁忌，不见于史官的笔下。
-                
-                <br><br>
-                
-                只有李白自己清楚，他的骄傲被挫败了，在最强的巅峰。从那之后，他开始自我放逐，从寂寞的旅途中寻求新的意义，陪伴他的，除了剑，还多了酒。
-                
-                <br><br>
-                
-                <span class="highlight">人人都以为剑仙就此一蹶不振。但长安的府衙中，狄仁杰查看着关于李白的行踪报告，露出难以捉摸的冷笑。</span>
-                
-                <br><br>
-                
-                <span class="highlight">"元芳，你怎么看？"</span>
-                
-                <br><br>
-                
-                不等密探回答，他立刻自言自语："再次出鞘的时候，会更加惊天动地吧。这家伙，太过骄傲，又太过寂寞了。"
-                
-                <br><br>
-                
-                而狄仁杰所预言的这一天，在数年之后到来。
-                
-                <br><br>
-                
-                这是长安城平常的一天。晨钟回响在上空，自云中漠地的旅人远途而来，正抬首打量朱雀门上的剑痕；热闹的长乐坊中，五陵少年们因前所未有的美妙琴声而骚动；感业寺的银杏树依旧枝繁叶茂。唯有狄仁杰手下的密探隐入黑暗，紧张注视着那个白衣潇洒，酒剑相伴的男子身影。
-                
-                <br><br>
-                
-                <span class="highlight">剑仙李白，三入长安了。</span>
-                
-                <br><br>
-                
-                这次长安城又将怎样被动摇呢？
-                
-                <br><br>
-                
-                <span class="highlight">"大河之剑天上来！"</span>
-            </h5>
-        </section>
-    </div>
+        <br /><br />
+
+        彼时的李白，年少轻狂，拒绝了女帝入朝为官的邀请后，开始试剑天下的旅途。当他初次见到滔滔黄河时，心中的剑意迸发而出，奔流到海不复回。<span
+          class="highlight">从那时起，没有机关的师承，没有魔道的秘法，没有魔种的血脉的李白，仅仅依靠自己和手中的剑，成为帝国强者中的第一人，乃真正的天纵之才。</span>他会给每个败于己的对手赋诗，因此，诗名和剑名也一同流传开来。后来，甚至有人视之为荣耀，为得诗篇而求一败，令人哭笑不得。
+
+        <br /><br />
+
+        就在李白的剑意到达巅峰之后不久，旅途也来到了云中漠地。很少有人知道，生活在长安的李白，出生于云中漠地的海市蜃楼之下。他怀着剑仙荣耀归来，却发现幼年记忆里充满异域风情的繁华城池已经不复存在。被贩为奴隶的公主，<span
+          class="highlight">向他倾诉自己的遭遇：帝国的铁骑越过长城，踏平了整个云中漠地。荒废的城池很快被黄沙掩埋。李白想要救出她，少女却选择了从屈辱中自我了断。</span>
+
+        <br /><br />
+
+        鲜血激起了李白的侠义之心。他第二次单剑闯入长安，质问女帝讨要征平云中漠地的说法。一夜长安风云变色，大明宫也在剑仙之剑下黯然无光。有史以来从未曾被外力攻破的长安城，第一次因为一个普通人而动摇。
+
+        <br /><br />
+
+        没有人知道最后发生了什么事。李白自长安城中全身而退。他和女帝的密谈，被视为禁忌，不见于史官的笔下。
+
+        <br /><br />
+
+        只有李白自己清楚，他的骄傲被挫败了，在最强的巅峰。从那之后，他开始自我放逐，从寂寞的旅途中寻求新的意义，陪伴他的，除了剑，还多了酒。
+
+        <br /><br />
+
+        <span class="highlight">人人都以为剑仙就此一蹶不振。但长安的府衙中，狄仁杰查看着关于李白的行踪报告，露出难以捉摸的冷笑。</span>
+
+        <br /><br />
+
+        <span class="highlight">"元芳，你怎么看？"</span>
+
+        <br /><br />
+
+        不等密探回答，他立刻自言自语："再次出鞘的时候，会更加惊天动地吧。这家伙，太过骄傲，又太过寂寞了。"
+
+        <br /><br />
+
+        而狄仁杰所预言的这一天，在数年之后到来。
+
+        <br /><br />
+
+        这是长安城平常的一天。晨钟回响在上空，自云中漠地的旅人远途而来，正抬首打量朱雀门上的剑痕；热闹的长乐坊中，五陵少年们因前所未有的美妙琴声而骚动；感业寺的银杏树依旧枝繁叶茂。唯有狄仁杰手下的密探隐入黑暗，紧张注视着那个白衣潇洒，酒剑相伴的男子身影。
+
+        <br /><br />
+
+        <span class="highlight">剑仙李白，三入长安了。</span>
+
+        <br /><br />
+
+        这次长安城又将怎样被动摇呢？
+
+        <br /><br />
+
+        <span class="highlight">"大河之剑天上来！"</span>
+      </h5>
+    </section>
+  </div>
 </body>
+
 </html>
