@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.5;
+}
+
+.container {
+    padding: 15px;
+}
+
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tab {
+    font-size: 16px;
+    font-weight: bold;
+    color: #315EFB;
+    background: rgba(49, 94, 251, 0.1);
+    padding: 8px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.tab.active,
+.tab:hover {
+    background: #315EFB;
+    color: white;
+}
+
+.items {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.list {
+    display: none;
+}
+
+.list.active {
+    display: block;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.rank {
+    font-weight: bold;
+    min-width: 20px;
+    color: #9195A3;
+}
+
+.rank1 {
+    color: #FE2D46;
+}
+
+.rank2 {
+    color: #F60;
+}
+
+.rank3 {
+    color: #FAA90E;
+}
+
+.items a {
+    text-decoration: none;
+    color: #2440b3;
+}
+
+#hot a {
+    transition: .2s;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #2e50d7;
+}
