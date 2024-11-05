@@ -1,36 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        :empty {
-            font-size: 20px;
+        .button {
+            background-color: #4554ff;
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 35px;
         }
-
-        p {
-            width: 100px;
-            height: 100px;
+        .button a {
+            color: #fff;
+            text-decoration: none;
         }
-
-        :target {
-            border: 1px solid blue;
+        .button:hover {
+            border: 2px solid #50c8ff;
         }
     </style>
 </head>
-
 <body>
-    <p><a href="#news">点击链接</a></p>
-    <p>hello world</p>
-    <p>hello world</p>
-    <p>hello world</p>
-    <p id="news">你好</p>
-    <p>hello world</p>
-    <p>hello world</p>
-    <p>hello world</p>
-    <p>hello world</p>
+    <div class="button">
+        <a href="https://www.baidu.com" target="_blank">百度</a>
+    </div>
 </body>
-
 </html>
