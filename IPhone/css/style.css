@@ -1,0 +1,190 @@
+body {
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+    font-family: 'SF Pro Display', Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000000;
+}
+
+.rounded-rectangle {
+    width: 700px;
+    height: auto;
+    background: linear-gradient(135deg, #ffffff, #f0f0f0);
+    border: none;
+    border-radius: 20px;
+    margin: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    display: flex;
+    padding: 20px;
+    transition: all 0.3s ease;
+    flex-wrap: wrap;
+}
+
+.rounded-rectangle:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.phone-image {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+.phone-image img {
+    height: 300px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.phone-name {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 10px 0;
+    color: #000000;
+}
+
+.buy-button {
+    background-color: #000000;
+    color: #fff;
+    padding: 10px 25px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.buy-button:hover {
+    background-color: #333333;
+    transform: translateY(-2px);
+}
+
+.phone-specs {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.specs-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #000000;
+    letter-spacing: -0.5px;
+}
+
+.specs-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.specs-item {
+    font-size: 14px;
+    color: #000000;
+    padding: 8px 16px;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    transition: all 0.2s ease;
+}
+
+.specs-item:hover {
+    background-color: #e0e0e0;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    transform: translateX(4px);
+}
+
+/* 按钮样式非原创 */
+/* From Uiverse.io by cssbuttons-io */
+button {
+    position: relative;
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    outline-offset: 4px;
+    transition: filter 250ms;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+.shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: hsl(0deg 0% 0% / 0.25);
+    will-change: transform;
+    transform: translateY(2px);
+    transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+}
+
+.edge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: linear-gradient(to left,
+            hsl(0deg 0% 16%) 0%,
+            hsl(0deg 0% 32%) 8%,
+            hsl(0deg 0% 32%) 92%,
+            hsl(0deg 0% 16%) 100%);
+}
+
+.front {
+    display: block;
+    position: relative;
+    padding: 12px 27px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    color: white;
+    background: hsl(0, 0%, 28%);
+    will-change: transform;
+    transform: translateY(-4px);
+    transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+    -webkit-transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+    -moz-transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+    -ms-transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+    -o-transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+}
+
+button:hover {
+    filter: brightness(110%);
+}
+
+button:hover .front {
+    transform: translateY(-6px);
+    transition: transform 250ms cubic-bezier(.3, .7, .4, 1.5);
+}
+
+button:active .front {
+    transform: translateY(-2px);
+    transition: transform 34ms;
+}
+
+button:hover .shadow {
+    transform: translateY(4px);
+    transition: transform 250ms cubic-bezier(.3, .7, .4, 1.5);
+}
+
+button:active .shadow {
+    transform: translateY(1px);
+    transition: transform 34ms;
+}
+
+button:focus:not(:focus-visible) {
+    outline: none;
+}

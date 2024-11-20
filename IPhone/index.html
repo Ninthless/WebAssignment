@@ -1,141 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>Nothing Phone</title>
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        body {
-            background-color: #ffffff;
-            margin: 0;
-            padding: 0;
-            font-family: 'SF Pro Display', Arial, sans-serif;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #000000;
-        }
-
-        .rounded-rectangle {
-            width: 700px;
-            height: auto;
-            background: linear-gradient(135deg, #ffffff, #f0f0f0);
-            border: none;
-            border-radius: 20px;
-            margin: 15px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            display: flex;
-            padding: 20px;
-            transition: all 0.3s ease;
-            flex-wrap: wrap;
-        }
-
-        .rounded-rectangle:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .phone-image {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 15px;
-        }
-
-        .phone-image img {
-            height: 300px;
-            object-fit: contain;
-            transition: transform 0.3s ease;
-        }
-
-        .phone-name {
-            font-size: 24px;
-            font-weight: 700;
-            margin: 10px 0;
-            color: #000000;
-        }
-
-        .buy-button {
-            background-color: #000000;
-            color: #fff;
-            padding: 10px 25px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .buy-button:hover {
-            background-color: #333333;
-            transform: translateY(-2px);
-        }
-
-        .phone-specs {
-            flex: 1;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-        }
-
-        .specs-title {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: #000000;
-            letter-spacing: -0.5px;
-        }
-
-        .specs-container {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 10px;
-        }
-
-        .specs-item {
-            font-size: 14px;
-            color: #000000;
-            padding: 8px 16px;
-            border-radius: 4px;
-            background-color: #f0f0f0;
-            transition: all 0.2s ease;
-        }
-
-        .specs-item:hover {
-            background-color: #e0e0e0;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-            transform: translateX(4px);
-        }
-    </style>
 </head>
-
 <body>
-<div class="rounded-rectangle">
-    <div class="phone-image">
-        <img src="https://nothingcn.com/cdn/shop/files/phone-2-black_2d5e1e18-c3ed-41cd-9779-921276ce0502_750x.png?v=1692590719"
-             alt="Nothing Phone">
-        <div class="phone-name">Nothing Phone (2)</div>
-        <a href="https://www.nothing.tech" class="buy-button">立即购买</a>
-    </div>
-    <div class="phone-specs">
-        <div class="specs-title">规格参数</div>
-        <div class="specs-container">
-            <div class="specs-item">• 处理器: 骁龙 8+ Gen 1</div>
-            <div class="specs-item">• 显示屏: 6.7英寸 LTPO OLED, 120Hz</div>
-            <div class="specs-item">• 内存: 8GB/12GB RAM</div>
-            <div class="specs-item">• 存储: 128GB/256GB/512GB</div>
-            <div class="specs-item">• 主摄像头: 50MP + 50MP 超广角</div>
-            <div class="specs-item">• 前置摄像头: 32MP</div>
-            <div class="specs-item">• 电池: 4700mAh</div>
-            <div class="specs-item">• 充电: 45W有线快充, 15W无线充电</div>
-            <div class="specs-item">• 特色: Glyph Interface发光界面</div>
+    <div class="rounded-rectangle">
+        <div class="phone-image">
+            <img src="https://nothingcn.com/cdn/shop/files/phone-2-black_2d5e1e18-c3ed-41cd-9779-921276ce0502_750x.png?v=1692590719"
+                alt="Nothing Phone">
+            <div class="phone-name">Nothing Phone (2)</div>
+            <button onclick="window.open('https://www.nothing.tech', '_blank')">
+                <span class="shadow"></span>
+                <span class="edge"></span>
+                <span class="front text"> 点击购买
+                </span>
+            </button>
+        </div>
+        <div class="phone-specs">
+            <div class="specs-title">规格参数</div>
+            <div class="specs-container">
+                <div class="specs-item">• 处理器: 骁龙 8+ Gen 1</div>
+                <div class="specs-item">• 显示屏: 6.7英寸 LTPO OLED, 120Hz</div>
+                <div class="specs-item">• 内存: 8GB/12GB RAM</div>
+                <div class="specs-item">• 存储: 128GB/256GB/512GB</div>
+                <div class="specs-item">• 主摄像头: 50MP + 50MP 超广角</div>
+                <div class="specs-item">• 前置摄像头: 32MP</div>
+                <div class="specs-item">• 电池: 4700mAh</div>
+                <div class="specs-item">• 充电: 45W有线快充, 15W无线充电</div>
+                <div class="specs-item">• 特色: Glyph Interface发光界面</div>
+            </div>
         </div>
     </div>
-</div>
 </body>
 
 </html>
