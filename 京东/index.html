@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>京东</title>
     <style>
         body {
             margin: 50px;
@@ -13,20 +13,752 @@
             align-items: flex-start;
             height: 100vh;
         }
+
         .background-rectangle {
             background-color: white;
-            width: 1170px;
-            height: 625px;
+            height: 388px;
             border-radius: 14px;
-            box-shadow: 20px 20px 60px #bebebe,
-                -20px -20px 60px #ffffff;
+            box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+            padding: 16px;
+            display: flex;
+            gap: 16px;
+        }
+
+        .rectangle1 {
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            width: 240px;
+            height: 384px;
+            margin-right: 0;
+            font-size: 14px;
+        }
+
+        .right-container {
+            display: flex;
+            flex-direction: column;
+            width: 752px;
+        }
+
+        .rectangle2 {
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            width: 752px;
+            height: 48px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            padding: 0 20px;
+            box-sizing: border-box;
+            gap: 5px;
+        }
+
+        .bottom-container {
+            display: flex;
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .rectangle3 {
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            width: 240px;
+            height: 320px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .rectangle4 {
+            background-color: #ffffff;
+            border-radius: 8px;
+            width: 240px;
+            height: 320px;
+            display: grid;
+            grid-template-columns: repeat(2, 112px);
+            grid-template-rows: repeat(2, 152px);
+            box-sizing: border-box;
+            gap: 16px;
+            justify-content: center;
+            align-content: center;
+            overflow: hidden;
+        }
+
+        .rectangle5 {
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            width: 240px;
+            height: 320px;
+            padding: 16px;
+            padding-top: 24px;
+            box-sizing: border-box;
+        }
+
+        .rectangle-right {
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            width: 240px;
+            height: 384px;
+        }
+
+        .rectangle2-text,
+        .rectangle2-text-red {
+            padding: 0 8px;
+        }
+
+        .rectangle2-text {
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .rectangle2-text-red {
+            text-decoration: none;
+            color: red;
+            font-weight: bold;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+        }
+
+        .icon {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            margin-right: 8px;
+            background-image: url(https://m.360buyimg.com/babel/jfs/t1/110566/40/51231/2850/670bd74dF6826d105/864cbe26bf0120be.png);
+            background-size: cover;
+            background-position: center;
+            vertical-align: middle;
+        }
+
+        .spacer {
+            width: 1px;
+            height: 16px;
+            background-color: rgba(0, 0, 0, .06);
+            margin: 0 2px;
+        }
+
+        .category-item {
+            padding: 8px 15px;
+            color: #333;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            gap: 8px;
+            background-color: transparent;
+            transition: all 0.2s ease;
+        }
+
+        .category-item:hover {
+            background-color: #e3e3e3;
+            border-radius: 8px;
+        }
+
+        .category-item.active,
+        .category-item:hover {
+            background-color: #e3e3e3;
+            color: #e1251b;
+        }
+
+        .category-item.active .category-icon,
+        .category-item:hover .category-icon {
+            filter: hue-rotate(320deg) saturate(150%);
+        }
+
+        .category-icon {
+            width: 16px;
+            height: 16px;
+            min-width: 16px;
+            object-fit: contain;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 6px;
+            z-index: 2;
+            padding: 2px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            box-sizing: border-box;
+        }
+
+        .dot.active {
+            background: #e1251b;
+            border-color: #e1251b;
+        }
+
+        .login-section {
+            text-align: left;
+        }
+
+        .avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
+
+        .carousel-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .carousel-item {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .carousel-item.active {
+            opacity: 1;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .avatar-area {
+            display: flex;
+            justify-content: flex-start;
+            padding: 20px 20px 20px 30px;
+        }
+
+        .avatar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .avatar img {
+            width: 66px;
+            height: 66px;
+            border-radius: 50%;
+        }
+
+        .avatar-text-container {
+            text-align: left;
+            padding-top: 10px;
+            padding-left: 20px;
+        }
+
+        .avatar-text {
+            color: #333;
+            font-size: 14px;
+            margin-bottom: 4px;
+            font-weight: bold;
+        }
+
+        .avatar-text-zhuce {
+            color: #666;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .avatar-text-zhuce:hover {
+            color: #e1251b;
+        }
+
+        .box1,
+        .box2,
+        .box3,
+        .box4 {
+            background: linear-gradient(180deg, rgba(255, 15, 35, .08), rgba(255, 15, 35, 0) 28.95%), #FFF;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 8px;
+            cursor: pointer;
+            border: 1px solid #f0f0f0;
+            box-sizing: border-box;
+            width: 112px;
+            height: 152px;
+        }
+
+        .box-title {
+            font-size: 18px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 4px;
+            order: -1;
+        }
+
+        .box-image {
+            width: 70%;
+            height: 50%;
+            object-fit: contain;
+            margin-bottom: 4px;
+            border-radius: 8px;
+        }
+
+        .box-price {
+            margin-top: auto;
+            color: #e1251b;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .box-tag {
+            font-size: 12px;
+            color: #e1251b;
+            padding: 2px 4px;
+            border-radius: 2px;
+            background-color: #fff1f1;
+        }
+
+        .box4 .box-tag {
+            margin-top: auto;
+            margin-bottom: 0;
+        }
+
+        .box1 .box-tag {
+            margin-bottom: 4px;
+        }
+
+        .button-area {
+            padding: 0 20px;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .area-text {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 4px;
+            font-weight: bold;
+        }
+
+        .area-text2 {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 10px;
+        }
+
+        .login-button {
+            width: 100%;
+            height: 40px;
+            background-color: #e1251b;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .bottom-nav {
+            display: flex;
+            justify-content: space-around;
+            padding: 0 20px;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .nav-icon {
+            width: 24px;
+            height: 24px;
+            margin-bottom: 4px;
+        }
+
+        .nav-text {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .member-cards {
+            padding: 0 20px;
+            display: flex;
+            gap: 10px;
+            margin-top: 13px;
+        }
+
+        .member-card {
+            flex: 1;
+            background: linear-gradient(to bottom, #f7f1e3, #eadec3);
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .member-card.blue {
+            background: linear-gradient(to bottom, #e8f4ff, #c5e2ff);
+        }
+
+        .card-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 4px;
+        }
+
+        .card-desc {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .card-button {
+            font-size: 12px;
+            color: #333;
+            background-color: rgba(0, 0, 0, 0.1);
+            border: none;
+            border-radius: 12px;
+            padding: 4px 8px;
+            cursor: pointer;
+        }
+
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .icon-img {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 4px;
+        }
+
+        .icon-text {
+            font-size: 12px;
+            color: #333;
+            text-align: center;
         }
     </style>
 </head>
 
 <body>
     <div class="background-rectangle">
+        <div class="rectangle1">
+            <div class="category-item">
+                <img class="category-icon"
+                    src="https://img14.360buyimg.com/imagetools/jfs/t1/95664/15/40921/296/66d13f7cF7ed5ab7d/bd4d68f33a69c7dc.png"
+                    alt="家用电器">
+                家用电器
+            </div>
+            <div class="category-item">
+                <img class="category-icon"
+                    src="https://img10.360buyimg.com/imagetools/jfs/t1/247476/17/17051/251/66d13f7dF795a4306/93894d9675b21bc9.png"
+                    alt="手机">
+                手机 / 运营 / 数码
+            </div>
+            <div class="category-item">
+                <img class="category-icon"
+                    src="https://img12.360buyimg.com/imagetools/jfs/t1/242395/34/16729/259/66d13f7bF0d8cc517/d0b621d6a5d57409.png"
+                    alt="电脑">
+                电脑 / 办公 / 文具用品
+            </div>
+            <div class="category-item">
+                <img class="category-icon"
+                    src="https://img11.360buyimg.com/imagetools/jfs/t1/158901/20/47133/355/66d13f7cFe7ae3a25/0241d37642abb9a5.png"
+                    alt="家居">
+                家居 / 家具 / 家装 / 厨具
+            </div>
+            <div class="category-item">
+                <img class="category-icon"
+                    src="https://img13.360buyimg.com/imagetools/jfs/t1/236205/4/26259/315/66d13f7bFa6179f46/01e945d3bae87a8d.png"
+                    alt="服装">
+                男装 / 女装 / 童装 / 内衣
+            </div>
+            <div class="category-item">
+                <img class="category-icon"
+                    src="https://img13.360buyimg.com/imagetools/jfs/t1/78165/1/28972/293/66d13f7bF366459f6/ccc78435369c55f1.png"
+                    alt="美妆">
+                美妆 / 个护清洁 / 宠物
+            </div>
+            <div class="category-item">
+                <img class="category-icon"
+                    src="https://img13.360buyimg.com/imagetools/jfs/t1/57285/32/26773/372/66d13f7dFd5e7f8fa/c97b8634e410fd2f.png"
+                    alt="鞋包">
+                女鞋 / 箱包 / 钟表 / 珠宝
+            </div>
+            <div class="category-item">
+                <img class="category-icon"
+                    src="https://img12.360buyimg.com/imagetools/jfs/t1/132989/18/46173/321/66d13f7dF21b29c8a/0204c8f1aefd017a.png"
+                    alt="运动">
+                男鞋 / 运动 / 户外
+            </div>
+            <div class="category-item">
+                <img class="category-icon"
+                    src="https://img10.360buyimg.com/imagetools/jfs/t1/238399/24/22617/307/66d13f7bFe05d9a35/b7f1e233a982662a.png"
+                    alt="汽车">
+                房产 / 汽车 / 汽车用品
+            </div>
+            <div class="category-item">
+                <img class="category-icon"
+                    src="https://img10.360buyimg.com/imagetools/jfs/t1/231301/22/25764/350/66d13f7cF939a0236/582b896f1eefdbc8.png"
+                    alt="母婴">
+                母婴 / 玩具乐器
+            </div>
+            <div class="category-item">
+                <img class="category-icon"
+                    src="https://img12.360buyimg.com/imagetools/jfs/t1/90075/15/45774/323/66d13f7dF22e7951a/45d57a26b924d416.png"
+                    alt="食品">
+                食品 / 酒类 / 生鲜 / 特产
+            </div>
+        </div>
+        <div class="right-container">
+            <div class="rectangle2">
+                <a href="" class="rectangle2-text-red"><span class="icon"></span>早10好价</a>
+                <div class="spacer"></div>
+                <a href="" class="rectangle2-text">排行榜</a>
+                <div class="spacer"></div>
+                <a href="" class="rectangle2-text">京东企业购</a>
+                <div class="spacer"></div>
+                <a href="" class="rectangle2-text">京东拍卖</a>
+                <div class="spacer"></div>
+                <a href="" class="rectangle2-text">京东五金城</a>
+                <div class="spacer"></div>
+                <a href="" class="rectangle2-text">拍拍二手</a>
+            </div>
+            <div class="bottom-container">
+                <div class="rectangle3">
+                    <div class="carousel-container">
+                        <div class="carousel-item active">
+                            <img src="//imgcps.jd.com/img-cubic/creative_server_cia_jdcloud/v2/2020217/100026347517/FocusFullshop/CkJqZnMvdDEvMjQzNDgzLzQvMjUwMTEvNzAzNTcvNjczYzM4N2RGZjA3MTE3OTMvNjZmNjUyNWMzZWJkYjBjNy5qcGcSBTUxNy13MAE4-aZ7QhAKDOS5oOmFkueZvemFkhABQhAKDOemj-WIqeeLguS6qxACQhAKDOeri-WNs-aKoui0rRAGQgoKBueyvumAiRAHWP3fo9D0Ag/cr/s/q.jpg"
+                                alt="习酒白酒">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://img14.360buyimg.com/babel/s1180x940_jfs/t20271120/178356/19/52576/46843/673d907aF47744a66/f621f96485ec6227.jpg.avif"
+                                alt="轮播图2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://imgcps.jd.com/img-cubic/creative_server_cia_jdcloud/v2/2020218/10067859837457/FocusFullshop/CkJqZnMvdDEvOTkyNy8xOC8yMTA3MC8xMTQ3ODEvNjNkZTA3NzdGZWYyNzYwNTUvZjRkOWQ1Mzc0OWE5ZDc0MS5qcGcSBTUwNS13MAE4-qZ7QhMKDeaJk2NhbGzlpb3niakQARgBQhMKD-S8mOaDoOS6q-S4jeWBnBACQhAKDOeri-WNs-aKoui0rRAGQgoKBuWKm-iNkBAHWJGk1tmBpQI/cr/s/q.jpg"
+                                alt="轮播图3">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://img10.360buyimg.com/babel/s1180x940_jfs/t20271128/230401/29/30494/123872/67482380F4288e66c/d75582bab546ce02.png.avif"
+                                alt="轮播图4">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://img11.360buyimg.com/babel/s1180x940_jfs/t20271128/246223/12/25466/100152/674815dfF147728e0/5302e6a45fdf357a.png.avif"
+                                alt="轮播图5">
+                        </div>
+                    </div>
+                    <div class="carousel-dots">
+                        <div class="dot active"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                </div>
+                <div class="rectangle4">
+                    <div class="box1">
+                        <img src="https://m.360buyimg.com/seckillcms/s150x150_jfs/t20260703/172552/13/36191/29494/64a3b8dbF9153f97d/af7d986fa9fa73aa.jpg"
+                            alt="百亿补贴" class="box-image">
+                        <div class="box-title">百亿补贴</div>
+                        <div class="box-tag">已补5元</div>
+                        <div class="box-price">¥22.9</div>
+                    </div>
+                    <div class="box2">
+                        <img src="https://img30.360buyimg.com/jdcms/s154x154_jfs/t1/208227/27/46902/136528/672d826dFde70a0ce/1b7a4801fdb44181.jpg.avif"
+                            alt="9.9包邮" class="box-image">
+                        <div class="box-title">9.9包邮</div>
+                        <div class="box-price">¥9.9</div>
+                    </div>
+                    <div class="box3">
+                        <img src="https://m.360buyimg.com/seckillcms/s250x250_jfs/t20270803/245209/34/16714/59781/66ade0dfF4c774fc2/72c70b9ab73c052b.jpg"
+                            alt="京东秒杀" class="box-image">
+                        <div class="box-title">京东秒杀</div>
+                        <div class="box-price">¥9.9</div>
+                    </div>
+                    <div class="box4">
+                        <img src="https://m.360buyimg.com/livecms/jfs/t1/205773/35/35321/33399/6540cbe8F1076e90d/77f909f6b2ac282b.png"
+                            alt="京东直播" class="box-image">
+                        <div class="box-title">京东直播</div>
+                        <div class="box-tag">低价好物</div>
+                    </div>
+                </div>
+                <div class="rectangle5">
+                    <div class="icon-grid">
+                        <a href="#" class="icon-item">
+                            <img src="https://m.360buyimg.com/babel/jfs/t1/243763/35/24566/3672/673721d6F52f8c4cb/7bf1c6789ac01133.png"
+                                alt="京豆" class="icon-img">
+                            <span class="icon-text">京豆</span>
+                        </a>
+                        <a href="#" class="icon-item">
+                            <img src="https://m.360buyimg.com/babel/jfs/t1/231444/6/27383/10280/66e3fbc2Fc1563e2a/409eb5bd94d0519f.png"
+                                alt="话费" class="icon-img">
+                            <span class="icon-text">话费</span>
+                        </a>
+                        <a href="#" class="icon-item">
+                            <img src="https://m.360buyimg.com/babel/jfs/t1/224609/9/27337/8921/66e3fbcfF475e8f78/bf2669661615f857.png"
+                                alt="加油卡" class="icon-img">
+                            <span class="icon-text">加油卡</span>
+                        </a>
+                        <a href="#" class="icon-item">
+                            <img src="https://m.360buyimg.com/babel/jfs/t1/240435/32/18037/4804/66e3fbb9F9da337a9/88a1c1e8b63e5620.png"
+                                alt="游戏" class="icon-img">
+                            <span class="icon-text">游戏</span>
+                        </a>
+                        <a href="#" class="icon-item">
+                            <img src="https://m.360buyimg.com/babel/jfs/t1/134819/19/50541/5635/67331508F5b88970c/b73e5f373ec68849.png"
+                                alt="政府消费券" class="icon-img">
+                            <span class="icon-text">政府消费券</span>
+                        </a>
+                        <a href="#" class="icon-item">
+                            <img src="https://m.360buyimg.com/babel/jfs/t1/121165/19/48769/4730/66e3fb4dFce8171da/ba0bea3ac8695b3e.png"
+                                alt="企业计划购" class="icon-img">
+                            <span class="icon-text">企业计划购</span>
+                        </a>
+                        <a href="#" class="icon-item">
+                            <img src="https://m.360buyimg.com/babel/jfs/t1/191442/19/49010/10556/67111e93F323e2874/0aed1c833b4f56f9.png"
+                                alt="��旧换新" class="icon-img">
+                            <span class="icon-text">以旧换新</span>
+                        </a>
+                        <a href="#" class="icon-item">
+                            <img src="https://m.360buyimg.com/babel/jfs/t1/180341/28/47616/8886/66e3fba4F5feb619f/be2b1eb936ae3d36.png"
+                                alt="礼品卡" class="icon-img">
+                            <span class="icon-text">礼品卡</span>
+                        </a>
+                        <a href="#" class="icon-item">
+                            <img src="https://m.360buyimg.com/babel/jfs/t1/57352/4/28760/7863/66c85d19F3996c5fc/eb2a21548881adac.png"
+                                alt="买贵双倍赔" class="icon-img">
+                            <span class="icon-text">买贵双倍赔</span>
+                        </a>
+                        <a href="#" class="icon-item">
+                            <img src="https://m.360buyimg.com/babel/jfs/t1/8914/18/28174/7383/66e3fb71Fdee563de/2d210624a9db00c2.png"
+                                alt="爱回收" class="icon-img">
+                            <span class="icon-text">爱回收</span>
+                        </a>
+                        <a href="#" class="icon-item">
+                            <img src="https://m.360buyimg.com/babel/jfs/t1/182702/10/52541/8896/6724a006F04b32dfd/1385120b646a81a8.png"
+                                alt="企采返E卡" class="icon-img">
+                            <span class="icon-text">企采返E卡</span>
+                        </a>
+                        <a href="#" class="icon-item">
+                            <img src="https://m.360buyimg.com/babel/jfs/t1/134976/1/47793/8944/6724bf2cF55a1eb05/21d0f2d84f63b505.png"
+                                alt="金条借款" class="icon-img">
+                            <span class="icon-text">金条借款</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="rectangle-right">
+            <div class="login-section">
+                <div class="avatar-area">
+                    <div class="avatar">
+                        <img src="https://img14.360buyimg.com/imagetools/jfs/t1/66037/3/24346/9414/64b11b21F51d90361/8f015973cbb7de8d.png"
+                            alt="avatar">
+                    </div>
+                    <div class="avatar-text-container">
+                        <div class="avatar-text">Hi~下午好</div>
+                        <div class="avatar-text-zhuce">注册</div>
+                    </div>
+                </div>
+
+                <div class="button-area">
+                    <div class="area-text">登录京东后更多优惠</div>
+                    <div class="area-text2">登录可享，专属优惠，贴心推荐！</div>
+                    <button class="login-button">立即登录</button>
+                </div>
+
+                <div class="bottom-nav">
+                    <a href="#" class="nav-item">
+                        <img src="https://img11.360buyimg.com/imagetools/jfs/t1/111399/20/47797/1626/66cecde5Fb4ab8613/931a837d74ace63e.png"
+                            alt="收藏" class="nav-icon">
+                        <span class="nav-text">商品收藏</span>
+                    </a>
+                    <a href="#" class="nav-item">
+                        <img src="https://img10.360buyimg.com/imagetools/jfs/t1/154257/31/33291/1399/66cecde5F91d18706/83c9b2d5c3b9b99a.png"
+                            alt="关注" class="nav-icon">
+                        <span class="nav-text">店铺关注</span>
+                    </a>
+                    <a href="#" class="nav-item">
+                        <img src="https://img14.360buyimg.com/imagetools/jfs/t1/188604/23/47813/2205/66e3b4b9F53e58b3e/5a8b00e7c764a9ba.png"
+                            alt="我的" class="nav-icon">
+                        <span class="nav-text">我的京东</span>
+                    </a>
+                </div>
+
+                <div class="member-cards">
+                    <div class="member-card">
+                        <div class="card-title">PLUS会员</div>
+                        <div class="card-desc">无限免邮</div>
+                        <button class="card-button">立即开通 ></button>
+                    </div>
+                    <div class="member-card blue">
+                        <div class="card-title">企业会员</div>
+                        <div class="card-desc">体验津贴3200元</div>
+                        <button class="card-button">立即开通 ></button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <script>
+        const carouselItems = document.querySelectorAll('.carousel-item');
+        const dots = document.querySelectorAll('.dot');
+        let currentIndex = 0;
+        let autoPlayInterval;
+
+        function showSlide(index) {
+            carouselItems.forEach(item => item.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            carouselItems[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentIndex = index;
+        }
+
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(() => {
+                currentIndex = (currentIndex + 1) % carouselItems.length;
+                showSlide(currentIndex);
+            }, 3000);
+        }
+
+        function stopAutoPlay() {
+            clearInterval(autoPlayInterval);
+        }
+       
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('mouseenter', () => {
+                stopAutoPlay();
+                showSlide(index);
+            });
+
+            dot.addEventListener('mouseleave', () => {
+                startAutoPlay();
+            });
+        });
+        startAutoPlay();
+    </script>
 </body>
 
 </html>
