@@ -1,30 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
+    <!-- 设置字符编码为UTF-8 -->
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 设置视口以适应设备宽度，初始缩放比例为1.0 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!-- 网页标题 -->
+    <title>3D交互立方体</title>
     <style>
-        .box {
-            width: 200px;
-            height: 200px;
-            background-color: blueviolet;
-            display: inline-block;
-            background-image: url('https://img2.baidu.com/it/u=1170266276,1379731747&fm=253&fmt=auto&app=138&f=JPEG?w=1067&h=800');
-            background-size: cover;
-            background-position: center center;
-            background-attachment: fixed;
+        /* 设置body的样式 */
+        body {
+            margin: 0; /* 去除默认的外边距 */
+            min-height: 100vh; /* 设置最小高度为视口高度 */
+            display: flex; /* 使用flex布局 */
+            justify-content: center; /* 水平居中 */
+            align-items: center; /* 垂直居中 */
+            perspective: 1000px; /* 设置3D透视效果 */
+            background: #f0f0f0; /* 背景颜色 */
         }
 
-        .box:hover {
-            border: 5px solid #333;
+        /* 立方体容器的样式 */
+        .cube-container {
+            width: 200px; /* 宽度 */
+            height: 200px; /* 高度 */
+            position: relative; /* 相对定位 */
+            transform-style: preserve-3d; /* 保持3D变换 */
+            transition: transform 0.5s; /* 变换的过渡效果 */
+            animation: rotate 20s infinite linear; /* 旋转动画 */
+        }
+
+        /* 立方体每个面的样式 */
+        .face {
+            position: absolute; /* 绝对定位 */
+            width: 200px; /* 宽度 */
+            height: 200px; /* 高度 */
+            transition: transform 0.5s; /* 变换的过渡效果 */
+            overflow: hidden; /* 隐藏溢出内容 */
+        }
+
+        /* 图片样式 */
+        .face img {
+            width: 100%; /* 图片宽度为容器宽度 */
+            height: 100%; /* 图片高度为容器高度 */
+            object-fit: cover; /* 图片覆盖整个容器 */
+        }
+
+        /* 各个面的初始位置 */
+        .front { transform: translateZ(100px); } /* 正面 */
+        .back { transform: translateZ(-100px) rotateY(180deg); } /* 背面 */
+        .right { transform: translateX(100px) rotateY(90deg); } /* 右面 */
+        .left { transform: translateX(-100px) rotateY(-90deg); } /* 左面 */
+        .top { transform: translateY(-100px) rotateX(90deg); } /* 顶面 */
+        .bottom { transform: translateY(100px) rotateX(-90deg); } /* 底面 */
+        
+        /* 鼠标悬停时各个面的变换 */
+        .cube-container:hover .front { transform: translateZ(200px); }
+        .cube-container:hover .back { transform: translateZ(-200px) rotateY(180deg); }
+        .cube-container:hover .right { transform: translateX(200px) rotateY(90deg); }
+        .cube-container:hover .left { transform: translateX(-200px) rotateY(-90deg); }
+        .cube-container:hover .top { transform: translateY(-200px) rotateX(90deg); }
+        .cube-container:hover .bottom { transform: translateY(200px) rotateX(-90deg); }
+
+        /* 旋转动画关键帧 */
+        @keyframes rotate {
+            from { transform: rotateX(0) rotateY(0); } /* 初始状态 */
+            to { transform: rotateX(360deg) rotateY(360deg); } /* 结束状态 */
         }
     </style>
 </head>
 <body>
-    <div class="list">
-        <div class="box"></div>
+    <!-- 立方体容器 -->
+    <div class="cube-container">
+        <!-- 正面 -->
+        <div class="face front">
+            <img src="1.jpg" alt="正面">
+        </div>
+        <!-- 背面 -->
+        <div class="face back">
+            <img src="2.jpg" alt="背面">
+        </div>
+        <!-- 右面 -->
+        <div class="face right">
+            <img src="3.jpg" alt="右面">
+        </div>
+        <!-- 左面 -->
+        <div class="face left">
+            <img src="4.jpg" alt="左面">
+        </div>
+        <!-- 顶面 -->
+        <div class="face top">
+            <img src="5.jpg" alt="顶面">
+        </div>
+        <!-- 底面 -->
+        <div class="face bottom">
+            <img src="6.jpg" alt="底面">
+        </div>
     </div>
 </body>
 </html>
