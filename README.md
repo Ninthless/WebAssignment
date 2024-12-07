@@ -1,4 +1,4 @@
 # WebAssignment
  WebAssignment
 
-来自一位大一新生的web作业
+A web assignment from a student majoring in software technology
