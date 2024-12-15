@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>王者荣耀</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            position: relative;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        .background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .background-blur {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(5px);
+            z-index: 1;
+        }
+
+        .Btn {
+            width: 160px;
+            height: 50px;
+            border: none;
+            border-radius: 25px;
+            background: linear-gradient(to right, #ffcc00, #ff9900, #ffcc00);
+            background-size: 300%;
+            background-position: left;
+            color: #fff;
+            font-weight: bold;
+            font-size: 16px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            overflow: hidden;
+            z-index: 2;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .Btn::before {
+            position: absolute;
+            content: "查看详细";
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            border-radius: 25px;
+            transition: all 0.5s ease;
+            background-color: rgba(0, 0, 0, 0.5);
+            background-size: 200%;
+        }
+
+        .Btn:hover {
+            background-position: right;
+            box-shadow: 0 0 15px rgba(255, 153, 0, 0.7);
+        }
+
+        .Btn:hover::before {
+            background-position: right;
+        }
+
+        .Btn:active {
+            transform: scale(0.95);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            z-index: 3;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .modal.active {
+            display: block;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            background: #ff9900;
+            border: none;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 4;
+            transition: background 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background: #ffcc00;
+        }
+
+        .modal h2 {
+            margin-top: 0;
+            font-size: 24px;
+            color: #ff9900;
+        }
+
+        .modal p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <video class="background-video" autoplay loop muted>
+        <source src="https://b1f7b6373034f3e393f3710bb4be1846.v.smtcdns.com/video.dispatch.tc.qq.com/AHJFwAjxsNdb-D-_Bdv2vQAxM7NdkQApKEFsSC8YV0zU/B_JxNyiJmktHRgresXhfyMetECtQ8amBxc7XKdWHWfmu7lNvoxsnb2j06RLxvCjWPB/svp_50068/gzc_1000050_0b53kmansaaan4am5mrxg5tziu6d3fjqbwka.f204110.mp4?mkey=lego_ztc&f=00&sche_type=7&sdtfrom=v1104&guid=b567afa7a37110d03efe2c3858e3801d&vkey=E1CAF769B6AB7EFBBC6C985E6C0A877E7834310665A1E3E27F03A7E67C3B03203186F646C8E18C35B2A16BC9B2C4C7FFB813FF99D99917A8B01FF7B8F87F750D8497CCA9DACA7785DCED96BEAA15A14C04564EA4D898DA156CB44F4F5917C6DAB316BC9010D5580542A4468E3DB5E5B4A8364AAEDE0F92E12BE60CFE2AC2D06F40FC8B846B5138FE74CE4C87431423AB904239D01E389365E81098A3AB967355FEDA37D396C00B70ECBE0A368BDD12EA&cip=223.160.229.45&ocmiss=1&proto=https" type="video/mp4">
+    </video>
+    <div class="background-blur"></div>
+    <button class="Btn" onclick="toggleModal()">查看详细</button>
+
+    <div class="overlay" id="overlay"></div>
+    <div class="modal" id="modal">
+        <h2>王者荣耀</h2>
+        <p>《王者荣耀》是由腾讯游戏天美工作室群开发并运营在Android、IOS平台上的MOBA类国产手游，于2015年11月26日在Android、iOS平台上正式公测，游戏曾经使用名称有《英雄战迹》、《王者联盟》。《王者荣耀》的外服版本为《传说对决》。</p>
+        <button class="close-btn" onclick="toggleModal()">×</button>
+    </div>
+
+    <script>
+        function toggleModal() {
+            const modal = document.getElementById('modal');
+            const overlay = document.getElementById('overlay');
+            modal.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>
