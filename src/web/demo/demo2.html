@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #dragRoundBox {
+            background-color: #ff4141;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            touch-action: none;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="dragRoundBox"></div>
+
+<script>
+    const dragRoundBox = document.getElementById("dragRoundBox");
+
+    let startX = 0; // 手指开始时的位置
+    let startY = 0;
+    let boxX = 0;   // 盒子开始时的位置
+    let boxY = 0;
+
+    dragRoundBox.addEventListener("touchstart", (e) => {
+        const touch = e.touches[0];
+        startX = touch.clientX;
+        startY = touch.clientY;
+
+        const rect = dragRoundBox.getBoundingClientRect();
+        boxX = rect.left;
+        boxY = rect.top;
+
+        e.preventDefault(); // 阻止滚动
+    })
+
+    dragRoundBox.addEventListener("touchmove", (e) => {
+        const touch = e.touches[0];
+        const deltaX = touch.clientX - startX;
+        const deltaY = touch.clientY - startY;
+
+        let newLeft = boxX + deltaX; // 盒子新的left位置
+        let newTop = boxY + deltaY;  // 盒子新的top位置
+
+        newLeft = Math.max(0, Math.min(newLeft, window.innerWidth - dragRoundBox.offsetWidth));
+        newTop = Math.max(0, Math.min(newTop, window.innerHeight - dragRoundBox.offsetHeight));
+
+        dragRoundBox.style.left = newLeft + 'px';
+        dragRoundBox.style.top = newTop + 'px';
+
+        e.preventDefault();
+    })
+
+    dragRoundBox.addEventListener('touchend', (e) => {
+        console.log('拖拽结束');
+    });
+</script>
+</body>
+</html>

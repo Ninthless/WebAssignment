@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Touch拖拽示例</title>
+    <style>
+        #dragBox {
+            width: 100px;
+            height: 100px;
+            background-color: lightcoral;
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            border-radius: 12px;
+            touch-action: none; /* 禁止默认手势行为，比如滚动 */
+        }
+    </style>
+</head>
+<body>
+
+<div id="dragBox"></div>
+
+<script>
+    const box = document.getElementById('dragBox');
+
+    let startX = 0; // 手指开始时的位置
+    let startY = 0;
+    let boxX = 0;   // 盒子开始时的位置
+    let boxY = 0;
+
+    box.addEventListener('touchstart', (e) => {
+        const touch = e.touches[0];
+        startX = touch.clientX;
+        startY = touch.clientY;
+
+        const rect = box.getBoundingClientRect();
+        boxX = rect.left;
+        boxY = rect.top;
+
+        e.preventDefault(); // 阻止滚动
+    });
+
+    box.addEventListener('touchmove', (e) => {
+        const touch = e.touches[0];
+        const deltaX = touch.clientX - startX;
+        const deltaY = touch.clientY - startY;
+
+        let newLeft = boxX + deltaX; // 盒子新的left位置
+        let newTop = boxY + deltaY;  // 盒子新的top位置
+
+        newLeft = Math.max(0, Math.min(newLeft, window.innerWidth - dragRoundBox.offsetWidth));
+        newTop = Math.max(0, Math.min(newTop, window.innerHeight - dragRoundBox.offsetHeight));
+
+        // 更新盒子的位置
+        box.style.left = newLeft + 'px';
+        box.style.top = newTop + 'px';
+
+        e.preventDefault();
+    });
+
+    box.addEventListener('touchend', (e) => {
+        console.log('拖拽结束');
+    });
+</script>
+
+</body>
+</html>
